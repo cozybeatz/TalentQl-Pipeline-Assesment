@@ -4,7 +4,6 @@ const pageLabel = document.getElementById('pageLabel')!;
 const prevBtn = <HTMLInputElement> document.getElementById('prevBtn')!;
 const nextBtn = document.getElementById('nextBtn')!;
 
-
 const startApp = async () => {
 
     const checkIfIseven = (num: number) => {
@@ -111,7 +110,8 @@ const startApp = async () => {
             prevBtn.disabled = false; 
         }
     }
-
+    // Reset Table Body Inner HTML
+    tableBody.innerHTML = '';
     // Fetch Data And Insert Into Table
     await fetchAndInsertPageData();
     // Set Navigation Items Data
