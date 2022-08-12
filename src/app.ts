@@ -6,7 +6,7 @@ const nextBtn = document.getElementById('nextBtn')!;
 
 const startApp = async () => {
 
-    const checkIfIseven = (num: number) => {
+    const checkIfIseven = (num: number) => {  
         // get modulo
         let mod = num % 2;
         // check if modulo is zero
@@ -18,14 +18,14 @@ const startApp = async () => {
 
     const fetchData = async (pageNumber: number = 1) => {
         let res : any;
-        // heck if query number is even
-        let isQueryNumberEven = checkIfIseven(pageNumber);
+        // check if query number is even
+        let isPageNumberEven = checkIfIseven(pageNumber);
         // Check if query number is even
-        if(isQueryNumberEven = true) {
+        if(isPageNumberEven = true) {
             // get query number 
-            let queryNumber = pageNumber - 1;
+            let queryParamNumber = pageNumber - 1;
             // fetch results
-            res = await fetch(`https://randomapi.com/api/8csrgnjw?key=LEIX-GF3O-AG7I-6J84&page=${queryNumber}`); 
+            res = await fetch(`https://randomapi.com/api/8csrgnjw?key=LEIX-GF3O-AG7I-6J84&page=${queryParamNumber}`); 
         } else {
             res = await fetch(`https://randomapi.com/api/8csrgnjw?key=LEIX-GF3O-AG7I-6J84&page=${pageNumber}`); 
         } 
@@ -38,6 +38,7 @@ const startApp = async () => {
         return pageResults = results[0][pageNumber];
     }
 
+    
     const fetchAndInsertPageData = async (pageNumber: number = 1) => {
         // Get page results
         let pageResults = await fetchData(pageNumber);
@@ -110,13 +111,14 @@ const startApp = async () => {
             prevBtn.disabled = false; 
         }
     }
+
     // Reset Table Body Inner HTML
     tableBody.innerHTML = '';
     // Fetch Data And Insert Into Table
     await fetchAndInsertPageData();
     // Set Navigation Items Data
     setNavData(1);
-    // Check If Page is 1 And Disble Previous Button
+    // Check If Page is 1 And Disable Previous Button
     checkForPrevPageEnd();
 
 
@@ -133,7 +135,7 @@ const startApp = async () => {
         // Set navigation data
         setNavData(pageNumber);
         // Check if page is 1 and disable prev button
-        checkForPrevPageEnd()
+        checkForPrevPageEnd();
     }
 
     // ON PREVIOUS BUTTON CLICK
@@ -154,5 +156,4 @@ const startApp = async () => {
 
 
 };
-
 document.addEventListener('DOMContentLoaded', startApp);
