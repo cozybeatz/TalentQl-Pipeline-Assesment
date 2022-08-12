@@ -4,25 +4,33 @@
 
 1. I have all my selectors for the table, table body, page label, preious btn and next btn.
 
-2. I declare a `checkIfIsEven` function that checks if a particular page number is even and returns true or false
-   ```js
-   const checkIfIseven = (num: number) => {
-     let mod = num % 2;
-     if ((mod = 0)) {
-       return true;
-     }
-     return false;
-   };
-   ```
+```js
+const table = document.getElementById('table');
+const tableBody = table?.getElementsByTagName('tbody')[0]!;
+const pageLabel = document.getElementById('pageLabel')!;
+const prevBtn = <HTMLInputElement> document.getElementById('prevBtn')!;
+const nextBtn = document.getElementById('nextBtn')!;
+```
+
+2. I declare a `checkIfIsEven` function that checks if a particular page number is even and returns true or false.
+
+```js
+const checkIfIseven = (num: number) => {
+  let mod = num % 2;
+  if ((mod = 0)) {
+    return true;
+  }
+  return false;
+};
+```
+
 3. I declare a ` fetchData` function which takes a page number parameter who's default value is 1 because on page load, the first page should be displayed in th UI. This function checks if the page number is even by passing it to `checkIfIsEven` and assigning it to a variable `isQueryNumberEven` which returns `true` or `false`.
 
 ```js
 let isPageNumberEven = checkIfIseven(pageNumber);
 ```
 
-4. if `isPageNumberEven` returns true we declare a variable `queryParamNumber`, assign it to the value of `pageNumber - 1` and make a GET request to the endpoint
-
-passing in the `queryParamNumber` variable as the value for the query string "page" else we make the GET request with the pageNumber parameter as the value for the query string page on the endpoint
+4. if `isPageNumberEven` returns true we declare a variable `queryParamNumber`, assign it to the value of `pageNumber - 1` and make a GET request to the endpoint, pass the `queryParamNumber` variable as the value for the query string "page" else we make the GET request with the pageNumber parameter as the value for the query string page on the endpoint.
 
 ```js
 if ((isPageNumberEven = true)) {
@@ -44,7 +52,7 @@ let pageResults: any;
 return (pageResults = results[0][pageNumber]);
 ```
 
-6. i declare a `fetchAndInsertPageData` variable which fetches and returns the appropriate pageResults, loops through the pageResults and assigns the current iteration of the pageResults variable to a `data` variable, creates a new row in the table body for each iteration, inserts 3 cells into the first 3 positions of the new row.
+6. I declare a `fetchAndInsertPageData` variable which fetches and returns the appropriate pageResults, loops through the pageResults and assigns the current iteration of the pageResults variable to a `data` variable, creates a new row in the table body for each iteration, inserts 3 cells into the first 3 positions of the new row.
 
 ```js
 
@@ -60,7 +68,7 @@ for(const response in pageResults) {
 }
 ```
 
-7. I extract all the properties from the `data`variable including the `id`, `row`, `gender`, `age`, assign them to variables, create a text node for each one and append to the appropriate row cell
+7. I extract all the properties from the `data` variable including the `id`, `row`, `gender`, `age`, assign them to variables, create a text node for each one and append to the appropriate row cell
 
 ```js
         for(const response in pageResults) {
@@ -88,7 +96,7 @@ for(const response in pageResults) {
         }
 ```
 
-8. i declare a utility function that sets the data for the navigation items with the page number as a parameter. It sets the dataset for prevbtn to the page parameter minus 1 `page - 1`, sets the dataset for nextbtn to the page parameter plus 1 `page + 1` , sets the dataset for pageview on the page label to the page `page`, and sets the innerHTML of the page label to a string `Showing Page ${page}`
+8. I declare a utility function that sets the data for the navigation items with the page number as a parameter. It sets the dataset for prevbtn to the page parameter minus 1 `page - 1`, sets the dataset for nextbtn to the page parameter plus 1 `page + 1` , sets the dataset for pageview on the page label to the page `page`, and sets the innerHTML of the page label to a string `Showing Page ${page}`
 
 ```js
 const setNavData = (page: number) => {
@@ -109,7 +117,7 @@ const getPageNumberFromBtnDataset = (btn: any, dataset: string) => {
 };
 ```
 
-10. II declare another utility function that checks if we are at the first page and disables the previous button
+10. I declare another utility function that checks if we are at the first page and disables the previous button
 
 ```js
 const checkForPrevPageEnd = () => {
