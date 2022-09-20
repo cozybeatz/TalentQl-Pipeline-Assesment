@@ -1,3 +1,5 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6539d1aac4f14e94bb48b3d555dd07bc)](https://www.codacy.com/gh/cozybeatz/TalentQl-Pipeline-Assesment/dashboard?utm_source=github.com&utm_medium=referral&utm_content=cozybeatz/TalentQl-Pipeline-Assesment&utm_campaign=Badge_Grade)
+
 # Frontend Assessment
 
 Build and deploy a very simple frontend app for paginated data, that does the following
@@ -10,6 +12,5 @@ See full details and instructions (including an interesting paging caveat) in th
 
 #### Note
 
-1.  This comes as a purely HTML/CSS/JS project with [Parcel](https://parceljs.org/docs/) handling build and transpilation. 
+1.  This comes as a purely HTML/CSS/JS project with [Parcel](https://parceljs.org/docs/) handling build and transpilation.
 2.  We strongly recommend you complete the challenge with this setup, and only use a framework (like Vue/react/Angular) only if absolutely necessary and for which you will be required to provide reasonable justification as part of your evaluation
-
